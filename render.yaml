@@ -7,9 +7,9 @@ services:
       pip install -r requirements.txt &&
       python manage.py collectstatic --noinput &&
       python manage.py migrate &&
-      python manage.py createsuperuser --noinput || true
+      python create_superuser.py
 
-    startCommand: "gunicorn portfolio_backend.wsgi:application"
+    startCommand: gunicorn portfolio_backend.wsgi:application
 
     envVars:
       - key: DATABASE_URL
@@ -27,13 +27,13 @@ services:
         value: .onrender.com
 
       - key: DJANGO_SUPERUSER_USERNAME
-        value: admin
+        value: laman.bashirova
 
       - key: DJANGO_SUPERUSER_EMAIL
-        value: admin@example.com
+        value: lamanmirizada@gmail.com
 
       - key: DJANGO_SUPERUSER_PASSWORD
-        value: StrongPassword123
+        value: David.2025!
 
 databases:
   - name: portfolio-db
