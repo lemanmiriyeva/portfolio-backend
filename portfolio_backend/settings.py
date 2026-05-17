@@ -88,6 +88,10 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_ALL_ORIGINS = True  # Development üçün
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+]
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
