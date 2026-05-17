@@ -10,7 +10,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['status', 'is_featured', 'category']
+    filterset_fields = ['status', 'is_featured']  # ← category buradan silindi
     search_fields = ['title', 'description', 'technologies']
     ordering_fields = ['order', 'created_at', 'title']
     ordering = ['order', '-created_at']
@@ -28,7 +28,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         if status:
             queryset = queryset.filter(status=status)
         return queryset
-
+    
     def get_serializer_context(self):
         context = super().get_serializer_context()
         context['request'] = self.request
