@@ -81,17 +81,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS - Next.js ilə işləmək üçün
+
+CORS_ALLOW_ALL_ORIGINS = True  # Development üçün
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://portfolio-frontend-brown-tau.vercel.app/"
+    "https://portfolio-frontend-brown-tau.vercel.app"  # ← / yoxdur
 ]
-CORS_ALLOW_ALL_ORIGINS = True  # Development üçün
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
-    "https://portfolio-frontend-brown-tau.vercel.app/"
+    "https://portfolio-frontend-brown-tau.vercel.app"  # ← / yoxdur
 ]
 
 REST_FRAMEWORK = {
